@@ -65,3 +65,16 @@ CREATE TABLE info1(
     VALUES ("raj" , 1200),
     ("nithish" , 1000),
     ("riti" , 1300);
+    CREATE DATABASE class;
+    USE class;
+    CREATE TABLE student (
+    roll_no INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(50) NOT NULL,
+    age INTEGER NOT NULL,
+    class INTEGER NOT NULL
+    );
+    INSERT INTO student (name, age, class)
+    VALUES ("nithish" , 15 , 10);
+           ("mike" , 23 , 24);
+           ("riki" ,21, 12);
+           
