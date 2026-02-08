@@ -32,3 +32,25 @@ CREATE TABLE info1(
     SET rate_limits = 100
     SET PLAN = 'premium'
     WHERE id = 1;
+    DATABASE school;
+    CREATE TABLE course (
+    rollnumber INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    class INTEGER NOT NULL,
+    );
+    CREATE TABLE fees(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fees_left INTEGER NOT NULL,
+    );
+    VALUES course (?,?,?,?);
+    VALUES fees (?,?,?);
+    UPDATE fees 
+    SET fees_left = 0
+    WHERE id = 1;
+    CREATE TABLE hosptal (
+    patient_name TEXT NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    age INTEGER NOT NULL,
+    );
+    VALUES hospital (?,?,?,?);
+    USE school;
