@@ -54,3 +54,14 @@ CREATE TABLE info1(
     );
     VALUES hospital (?,?,?,?);
     USE school;
+    CREATE DATABASE salary;
+    USE salary;
+    CREATE TABLE employinfo(
+    emplid INTEGER AUTOINCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    salary INTEGER NOT NULL,
+    );
+    INSERT INTO employinfo(name ,salary)
+    VALUES ("raj" , 1200),
+    ("nithish" , 1000),
+    ("riti" , 1300);
