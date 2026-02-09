@@ -91,3 +91,37 @@ VALUES(?,?,?,?,?);
 UPDATE instagramdb 
 SET no_views = no_views + 1;
 WHERE id = 1;
+CREATE DATABASE IF NOT EXISTS instagramdb;
+USE instagramdb;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    username TEXT,
+    posts_created INT,
+    no_views INT,
+    email TEXT NOT NULL
+);
+CREATE TABLE posts (
+	   no_posts INTEGER ,
+       no_views INTEGER , 
+       no_likes INTEGER ,
+       posts_saved INTEGER
+       );
+INSERT INTO posts (no_posts , no_views , no_likes , posts_saved)
+       VALUES 
+       ( 100 ,1000 , 1000 ,12),
+       (1200 , 200 ,233 , 231);
+       
+INSERT INTO users (id, username, posts_created, no_views, email)
+VALUES (1, "nithish", 0, 0, "jansna@gmail.com"),
+(2 , "harsha" , 1 ,1 ,"123@gmail.com");
+SHOW TABLES;
+SHOW DATABASES;
+SELECT * FROM users;
+SELECT no_posts FROM posts;
+UPDATE posts
+SET no_views = no_views +1;
+SELECT no_views FROM posts
+
+
+
