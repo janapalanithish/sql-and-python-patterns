@@ -77,4 +77,17 @@ CREATE TABLE info1(
     VALUES ("nithish" , 15 , 10);
            ("mike" , 23 , 24);
            ("riki" ,21, 12);
-           
+        CREATE DATABASE IF NOT EXISTS instagramdb;
+USE instagramdb;
+CREATE TABLE instagramdb(
+    id INTEGER PRIMARY AUTOINCREMENT;
+    user_name TEXT NOT NULL;
+    posts_created INTEGER PRIMARY KEY;
+    no_views INTEGER PRIMARY KEY;
+    email TEXT NOT NULL
+);
+INSERT INTO instagramdb(id , user_name , postes_c eated , no_views , email);
+VALUES(?,?,?,?,?);
+UPDATE instagramdb 
+SET no_views = no_views + 1;
+WHERE id = 1;
