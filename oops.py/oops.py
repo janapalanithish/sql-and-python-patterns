@@ -69,4 +69,47 @@ class laptop:
 lo = laptop("dell" , 10000 , 10)
 print(lo.calculation())
 
+# creating a class without __init__ method
+class new:
+    def thug(self , n1 , n2):
+        self.n1 = n1
+        self.n2 = n2
+        return self.n1 + self.n2
+n = new()
+print(n.thug(10 , 11))
 
+# creating the bank model with withdraw , deposit methods
+class bankdetails:
+    def __init__(self , balance):
+        self.balance = balance
+    def deposit(self, amount1):
+        self.amount1 = amount1
+        self.balance1 = self.balance + self.amount1
+        return self.balance1
+    def withdraw(self , amount2):
+        self.amount2 = amount2
+        self.balance2 = self.balance - self.amount2
+        return self.balance2
+    
+b0 = bankdetails(10000)
+print(b0.deposit(122))
+print(b0.withdraw(100))
+print(b0.balance1) # this will give an error
+print(b0.balance2) # this will also gives an error
+# both statements gives error because the attributes balance1 and balance2 are not defined in the class
+
+class Mobile:
+    def __init__(self, brand, price, imei):
+        self.brand = brand
+        self.price = price
+        self.__imei = imei   
+
+    def final_imei(self):
+        return "*" * 11 + self.__imei[-4:]
+
+    def display_details(self):
+        print("Brand:", self.brand)
+        print("Price:", self.price)
+        print("IMEI:", self.final_imei())
+m0 = Mobile("Apple", 999, "9876543465432")
+print(m0.final_imei())
