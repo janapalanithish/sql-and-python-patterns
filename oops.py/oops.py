@@ -113,3 +113,28 @@ class Mobile:
         print("IMEI:", self.final_imei())
 m0 = Mobile("Apple", 999, "9876543465432")
 print(m0.final_imei())
+
+
+
+# create a class with the payment method to buy a laptop in which methods for payment discounts like use credit card get 10% discount , for downpayments 15% discount , for business card 20% discount 
+
+class payments:
+    def __init__(self , finalcost):
+        self.finalcost = finalcost
+    def credit(self , n):
+        self.n = n
+        self.finalcost1 = self.finalcost - (self.finalcost * n/100)
+        return self.finalcost1
+    def downpayment(self , m):
+        self.m = m
+        self.finalcost2 = self.finalcost - (self.finalcost * m/100)
+        return self.finalcost2
+    def businesscar(self , y):
+        self.y = y
+        self.finalcost3 = self.finalcost - (self.finalcost * y/100)
+        return self.finalcost3
+
+pay0 = payments(20000)
+print(pay0.credit(10))
+print(pay0.downpayment(20))
+print(pay0.businesscar(25))

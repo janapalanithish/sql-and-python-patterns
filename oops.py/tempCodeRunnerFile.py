@@ -1,15 +1,20 @@
-class Mobile:
-    def __init__(self, brand, price, imei):
-        self.brand = brand
-        self.price = price
-        self.__imei = imei   # private variable
+class payments:
+    def __init__(self , finalcost):
+        self.finalcost = finalcost
+    def credit(self , n):
+        self.n = n
+        self.finalcost1 = self.finalcost - (self.finalcost * n/100)
+        return self.finalcost1
+    def downpayment(self , m):
+        self.m = m
+        self.finalcost2 = self.finalcost - (self.finalcost * m/100)
+        return self.finalcost2
+    def businesscar(self , y):
+        self.y = y
+        self.finalcost3 = self.finalcost - (self.finalcost * y/100)
+        return self.finalcost3
 
-    def get_masked_imei(self):
-        return "*" * 11 + self.__imei[-4:]
-
-    def display_details(self):
-        print("Brand:", self.brand)
-        print("Price:", self.price)
-        print("IMEI:", self.get_masked_imei())
-m0 = Mobile("Apple", 999, "9876543465432")
-print(m0.get_masked_imei())
+pay0 = payments(20000)
+print(pay0.credit(10))
+print(pay0.downpayment(20))
+print(pay0.businesscar(25))
