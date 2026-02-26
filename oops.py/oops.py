@@ -1,3 +1,4 @@
+
 # creating a class with a method details
 class car:
     def __init__(self , brand , price):
@@ -9,6 +10,7 @@ class car:
 s1 = car("BMW M2" , "10000000")
 print(s1.brand)
 print(s1.details())
+
 
 # creating a class employee with method with method incrementing salary 
 
@@ -102,10 +104,10 @@ class Mobile:
     def __init__(self, brand, price, imei):
         self.brand = brand
         self.price = price
-        self.__imei = imei   
+        self.imei = imei   
 
     def final_imei(self):
-        return "*" * 11 + self.__imei[-4:]
+        return "*" * 11 + self.imei[:4]
 
     def display_details(self):
         print("Brand:", self.brand)
@@ -138,3 +140,15 @@ pay0 = payments(20000)
 print(pay0.credit(10))
 print(pay0.downpayment(20))
 print(pay0.businesscar(25))
+
+#creating a situation when if we get an otp then at the bottom of the website it will show the otp is sent to number ******6847
+
+class otp:
+    def __init__(self , phonenumber):
+        self.phonenumber = phonenumber
+
+    def imp(self):
+        return '*' * 6 + self.phonenumber[-4:]
+o1 = otp("9866736847")
+print(o1.imp())
+

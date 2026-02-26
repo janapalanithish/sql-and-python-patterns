@@ -1,20 +1,14 @@
-class payments:
-    def __init__(self , finalcost):
-        self.finalcost = finalcost
-    def credit(self , n):
-        self.n = n
-        self.finalcost1 = self.finalcost - (self.finalcost * n/100)
-        return self.finalcost1
-    def downpayment(self , m):
-        self.m = m
-        self.finalcost2 = self.finalcost - (self.finalcost * m/100)
-        return self.finalcost2
-    def businesscar(self , y):
-        self.y = y
-        self.finalcost3 = self.finalcost - (self.finalcost * y/100)
-        return self.finalcost3
+import time
+history = [ 
+    {"key":"vallu iddaru lovers"} ,
+    {"key":"vallu roju night vesukunrau"},
+    {"key":"roju night yesukovadam valla {p2} detain ayyindi"},
+    {"key":"kani {p2} agadu roju vestune undtadu"}
+]
+p1 = input("Enter the name of boy:")
+p2 = input("enter the name of girl:")
+p3 = input("do you want to calulate flames (yes/no):")
 
-pay0 = payments(20000)
-print(pay0.credit(10))
-print(pay0.downpayment(20))
-print(pay0.businesscar(25))
+for i in range(len(history)):
+    print(history[i]["key"].format(p1=p1 , p2=p2))
+    time.sleep(2)
