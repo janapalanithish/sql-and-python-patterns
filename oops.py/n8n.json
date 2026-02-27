@@ -1,0 +1,124 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "43ec0796-498f-4bb5-aefc-eb9eb44b46cf",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "29bc2aee-489b-4303-a07f-1b3e3db2bc8b",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "uWu0eUIxE99ymL5l",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "e865876b-8747-4070-b0fe-ed7b78f7d28e",
+      "name": "Telegram Trigger",
+      "webhookId": "b6727955-e008-4099-b081-4957017f8fe4",
+      "credentials": {
+        "telegramApi": {
+          "id": "nngxfivM5pZCtTJC",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "6985381929",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "53b8beb8-0cab-4f21-8b70-0c4fb06aa6b8",
+      "name": "Send a text message",
+      "webhookId": "36ac5f3a-4ed7-4cec-aef3-29a49e8989fb",
+      "credentials": {
+        "telegramApi": {
+          "id": "nngxfivM5pZCtTJC",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateId": "ready-to-run-ai-workflow-v5",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "18c393d191502841cc8dddcbda257c0de41a9fe445bd19794c69d2cc0fd86839"
+  }
+}
