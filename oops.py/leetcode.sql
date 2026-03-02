@@ -18,3 +18,10 @@ SELECT
      FROM Employee
      ORDER BY salary DESC
      LIMIT 1, 1) AS SecondHighestSalary;
+
+-- rank according to the scores
+SELECT 
+    score,
+    DENSE_RANK() OVER (ORDER BY score DESC) AS `rank`
+FROM Scores
+ORDER BY score DESC;
