@@ -1,7 +1,6 @@
-x = [1 , 2 , 3 , 4]
-target = 3
-for i in range(len(x)):
-    for j in range(i+1 , len(x)):
-        if(x[i] + x[j] == target):
-            print([i , j])
-            break
+# even or odd comparision using bit manipulation
+n1 = int(input("enter the number:"))
+if(n1 & 1 == 0):
+    print("even")
+else:
+    print("odd")
