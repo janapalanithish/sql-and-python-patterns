@@ -16,6 +16,7 @@ else:
 
 # printing the maximum product of two numbers in a list
 import math
+from operator import concat
 n = [1 ,2 ,3 , 4, 5]
 max_product = -math.inf
 for i in range(len(n)):
