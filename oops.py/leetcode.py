@@ -23,3 +23,11 @@ for i in range(len(n)):
         print(n[i] , n[j])
         max_product = max(max_product , n[i]*n[j])
 print(max_product)
+
+
+
+m = [1 , 2 , 3 ,4 ,5 ]
+for i in range(len(m)):
+    m.remove(m[0]) #only remove m[0] because after deleting an index, the remaining elements shift left
+    print(m) 
+print(m)
