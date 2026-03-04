@@ -26,9 +26,16 @@ for i in range(len(n)):
 print(max_product)
 
 
+# reversing of the array with O(1) space complexity
+class Solution(object):
+    def reverseString(self, s):
+        """
+        :type s: List[str]
+        :rtype: None Do not return anything, modify s in-place instead.
+        """
+        for i in range(len(s)//2):   
+           temp = s[i]
+           s[i] = s[len(s)-1-i]        
+           s[len(s)-1-i] = temp
 
-m = [1 , 2 , 3 ,4 ,5 ]
-for i in range(len(m)):
-    m.remove(m[0]) #only remove m[0] because after deleting an index, the remaining elements shift left
-    print(m) 
-print(m)
+               
