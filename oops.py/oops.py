@@ -163,5 +163,41 @@ class main:
 a1 = main("nithish" , 10 , 1000)
 print(a1.offer())
 
+class product:
+    def __init__(self , baseprice , finalprice , discount):
+        self.baseprice = baseprice 
+        self.finalprice = finalprice 
+        self.discount = discount
+    def get_offer(self):
+        self.finalprice = self.baseprice - (self.baseprice * self.discount/100)
+        return self.finalprice
 
+p1 = product(1000 , 0 , 10)
+print(p1.get_offer())
 
+from abc import ABC , abstractmethod
+class shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+class circle(shape):
+    def __init__(self , radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius
+c1 = circle(5)
+print(c1.area())
+
+from abc import ABC ,abstractmethod
+class amount(ABC):
+    @abstractmethod
+    def get(self):
+        pass
+class amount1(amount):
+    def __init__(self , amount , discount):
+        self.amount = amount
+        self.discount = discount
+    def get(self):
+        return self.amount - (self.amount * self.discount/100)
+a2 = amount1(1000 , 10  )
+print(a2.get())
