@@ -201,3 +201,18 @@ class amount1(amount):
         return self.amount - (self.amount * self.discount/100)
 a2 = amount1(1000 , 10  )
 print(a2.get())
+
+
+from abc import ABC , abstractmethod
+class this(ABC):
+    @abstractmethod
+    def tv(self):
+        pass
+class this1(this):
+    def __init__(self , channel):
+        self.channel = channel
+    def tv(self):
+        return self.channel
+v1 = this1("HBO")
+print(v1.tv())
+
