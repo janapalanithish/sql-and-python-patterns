@@ -216,3 +216,43 @@ class this1(this):
 v1 = this1("HBO")
 print(v1.tv())
 
+
+
+
+from abc import ABC , abstractmethod
+class student1(ABC):
+    @staticmethod
+    def student(self , name):
+        pass
+    def id(self , student_id):
+        pass
+class s1(student1):
+    def __init__(self , name , student_id):
+        self.name = name 
+        self.student_id = student_id
+    @staticmethod
+    def student(self , name):
+        self.name = name
+        return self.name
+    def id(self , student_id):
+        self.student_id = student_id
+        return self.student_id
+
+s2 = s1("nithish" , 12345)
+print(s2.id())
+print(s2.student())
+
+from abc import ABC , abstractmethod
+@staticmethod
+class math(ABC):
+    @staticmethod
+    def add(self):
+        pass 
+class sum(math):
+    def __init__(self , a , b):
+        self.a = a 
+        self.b = b
+    def get_sum(self):
+        return self.a + self.b
+s0 = sum(5 , 10)
+print(s0.get_sum())

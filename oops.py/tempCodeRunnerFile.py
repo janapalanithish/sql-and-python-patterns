@@ -1,12 +1,14 @@
 from abc import ABC , abstractmethod
-class this(ABC):
-    @abstractmethod
-    def tv(self):
-        pass
-class this1(this):
-    def __init__(self , channel):
-        self.channel = channel
-    def tv(self):
-        return self.channel
-v1 = this1("HBO")
-print(v1.tv())
+@staticmethod
+class math(ABC):
+    @staticmethod
+    def add(self):
+        pass 
+class sum(math):
+    def __init__(self , a , b):
+        self.a = a 
+        self.b = b
+    def get_sum(self):
+        return self.a + self.b
+s0 = sum(5 , 10)
+print(s0.get_sum())
