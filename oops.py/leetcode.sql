@@ -33,3 +33,9 @@ FROM Employee e1
 LEFT JOIN Employee e2
 ON e1.managerId = e2.id
 WHERE e1.salary > e2.salary;
+
+-- from the table selecting the number which are occuring more than three times 
+SELECT num AS ConsecutiveNums 
+FROM Logs
+GROUP BY ConsecutiveNums 
+HAVING count(num) > 3;
