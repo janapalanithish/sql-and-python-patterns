@@ -117,6 +117,12 @@ FROM inf
 GROUP BY department
 HAVING count(*) > 1
 
+-- question12: write a query to get emails in a table each once even if they occurred two times in the table
+DELETE p1 
+FROM Person P1
+JOIN Person p2 
+ON p1.email = p2.email
+AND p1.id > p2.id;
 
 
 
