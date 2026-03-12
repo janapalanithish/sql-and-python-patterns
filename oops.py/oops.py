@@ -256,3 +256,55 @@ class sum(math):
         return self.a + self.b
 s0 = sum(5 , 10)
 print(s0.get_sum())
+
+
+
+class remotecontrol:
+    def __init__(self):
+        self.channels = ["HBO", "CNN", "NBC"]
+        self.index = -1
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.index += 1
+        if self.index < len(self.channels):
+            return self.channels[self.index]
+        raise StopIteration
+r = remotecontrol()
+it = iter(r)
+print(next(it))
+
+class nums:
+    def __init__(self):
+        self.numbers = [1 ,2 ,3 ,4 ,5 ,6 ,7 ,8, 9, 10]
+        self.index = -1
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.index < len(self.numbers) - 1:
+            self.index += 1
+            return self.numbers[self.index]
+        raise StopIteration
+c1 = nums()
+it = iter(c1)
+print(next(it))
+print(next(it))
+
+
+import time
+class tup:
+    def __init__(self):
+        self.tuple = (1 , 2, 3 , 4 , 5)
+        self.index = -1
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.index < len(self.tuple) - 1 :
+            self.index += 1
+            return self.tuple[self.index]
+        raise StopIteration
+c1 = tup()
+it = iter(c1)
+for i in range(len(c1.tuple)):
+    print(next(it))
+    time.sleep(1)
