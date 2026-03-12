@@ -60,10 +60,26 @@ FROM Person P1
 JOIN Person p2 
 ON p1.email = p2.email
 AND p1.id > p2.id;
+
 -- finding the person who never orders 
+
 # Write your MySQL query statement below
 SELECT name AS Customers
 FROM Customers AS i1
 LEFT JOIN Orders AS i2
 ON i1.id = i2.CustomerId
 WHERE CustomerId is NULL;
+
+
+-- finding maxium salary of the department with two differnt tables and joining the id and departmentId
+SELECT d1.name AS Department ,
+       e1.name AS Employee ,
+       e1.salary AS Salary
+FROM Employee AS e1
+JOIN Department AS d1
+ON e1.departmentId = d1.id 
+WHERE e1.salary = (
+    SELECT MAX(salary)
+    FROM Employee
+    WHERE departmentId = e1.departmentId
+)
