@@ -60,3 +60,10 @@ FROM Person P1
 JOIN Person p2 
 ON p1.email = p2.email
 AND p1.id > p2.id;
+-- finding the person who never orders 
+# Write your MySQL query statement below
+SELECT name AS Customers
+FROM Customers AS i1
+LEFT JOIN Orders AS i2
+ON i1.id = i2.CustomerId
+WHERE CustomerId is NULL;
