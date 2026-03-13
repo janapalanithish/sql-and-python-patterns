@@ -83,3 +83,10 @@ WHERE e1.salary = (
     FROM Employee
     WHERE departmentId = e1.departmentId
 )
+
+-- finding the days where the temperature is greater than the previuos dates
+SELECT w2.id AS Id
+FROM Weather AS w1
+JOIN Weather AS w2
+ON w2.recordDate = w1.recordDate + INTERVAL 1 DAY  
+WHERE w2.temperature > w1.temperature;
