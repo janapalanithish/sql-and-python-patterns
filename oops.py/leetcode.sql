@@ -90,3 +90,9 @@ FROM Weather AS w1
 JOIN Weather AS w2
 ON w2.recordDate = w1.recordDate + INTERVAL 1 DAY  
 WHERE w2.temperature > w1.temperature;
+
+-- finding the first login of the user while palying a game according to the games played 
+
+SELECT player_id , min(event_date) AS first_login 
+FROM Activity
+GROUP BY player_id;
