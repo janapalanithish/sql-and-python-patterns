@@ -121,3 +121,20 @@ SELECT firstName , lastName , city , state
 FROM Person p1
 LEFT JOIN Address a1
 ON p1.personId = a1.personId;
+
+-- top salary of the table with having two different tables with entire departments
+SELECT
+    d.name AS Department,
+    e.name AS Employee,
+    e.salary AS Salary
+FROM
+    Employee e
+    JOIN Department d ON e.departmentId = d.id
+WHERE
+    (
+        SELECT COUNT(DISTINCT salary)
+        FROM Employee e2
+        WHERE e2.departmentId = e.departmentId AND e2.salary >= e.salary
+    ) <= 3
+ORDER BY
+    Department, Salary DESC;
