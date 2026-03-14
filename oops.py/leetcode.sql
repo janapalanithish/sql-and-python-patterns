@@ -115,3 +115,9 @@ WHERE
     GROUP BY
       A2.player_id
   );
+
+-- combining two tables. If the id doesn't exist in the second table, return NULL
+SELECT firstName , lastName , city , state 
+FROM Person p1
+LEFT JOIN Address a1
+ON p1.personId = a1.personId;
