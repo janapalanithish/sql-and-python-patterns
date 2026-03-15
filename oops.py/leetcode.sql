@@ -147,3 +147,15 @@ LEFT JOIN Bonus AS b1
 ON e1.empId = b1.empId
 WHERE b1.bonus < 1000 
       OR b1.bonus IS NULL;
+
+
+-- fetching the manager who has atleast five clients from the table 
+SELECT e1.name AS name
+FROM Employee e1
+JOIN Employee e2
+ON e1.id = e2.managerId
+GROUP BY e1.id
+HAVING count(e2.managerId) >= 5;
+
+
+
