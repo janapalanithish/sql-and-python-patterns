@@ -138,3 +138,12 @@ WHERE
     ) <= 3
 ORDER BY
     Department, Salary DESC;
+
+-- fetching the user nmaes who has bonus of less than 1000 and null from two tables 
+SELECT e1.name AS name , 
+       b1.bonus AS bonus
+FROM Employee AS e1
+LEFT JOIN Bonus AS b1
+ON e1.empId = b1.empId
+WHERE b1.bonus < 1000 
+      OR b1.bonus IS NULL;
