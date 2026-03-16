@@ -157,5 +157,15 @@ ON e1.id = e2.managerId
 GROUP BY e1.id
 HAVING count(e2.managerId) >= 5;
 
+-- a table has a customer and referral relationship we need to remove the customers who are not referre and with the id 2
+SELECT name 
+FROM Customers
+WHERE referee_id IS NULL
+      OR referee_id <> 2;
+      
+
+      
+
+
 
 
