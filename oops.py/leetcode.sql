@@ -162,7 +162,17 @@ SELECT name
 FROM Customers
 WHERE referee_id IS NULL
       OR referee_id <> 2;
-      
+  
+
+-- customer placing with the highest number with the order number 
+
+SELECT customer_number
+FROM Orders
+GROUP BY customer_number
+ORDER BY count(order_number) DESC 
+LIMIT 1;
+
+
 
       
 
