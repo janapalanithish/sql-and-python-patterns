@@ -179,6 +179,14 @@ FROM World
 WHERE population >= 25000000
     OR area >= 3000000;
 
+-- write a quesry to find the class which has grater than five students 
+SELECT class
+FROM Courses 
+GROUP BY class
+HAVING count(class) >= 5;
+
+
+
 
 
 
