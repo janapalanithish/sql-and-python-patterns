@@ -172,9 +172,12 @@ GROUP BY customer_number
 ORDER BY count(order_number) DESC 
 LIMIT 1;
 
+-- selecting the countries which has either the population greater than 25000000 or area is greater than 3000000
 
-
-      
+SELECT name , population , area 
+FROM World 
+WHERE population >= 25000000
+    OR area >= 3000000;
 
 
 
