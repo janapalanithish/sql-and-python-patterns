@@ -185,7 +185,15 @@ FROM Courses
 GROUP BY class
 HAVING count(class) >= 5;
 
-
+-- checking the highest number and unique number in the table 
+SELECT MAX(num) AS num
+FROM MyNumbers
+WHERE num IN (
+    SELECT num
+    FROM MyNumbers
+    GROUP BY num
+    HAVING count(num) = 1
+);
 
 
 
