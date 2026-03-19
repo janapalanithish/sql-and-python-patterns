@@ -195,6 +195,13 @@ WHERE num IN (
     HAVING count(num) = 1
 );
 
+-- fetching movies other than boring description and the odd id number with descending in id , rating of the movie
+SELECT id , movie , description , rating 
+FROM Cinema 
+GROUP BY id , movie , description , rating
+HAVING id%2 <> 0 AND description <> "boring"
+ORDER BY rating DESC;
+
 
 
 
