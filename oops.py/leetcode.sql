@@ -202,6 +202,12 @@ GROUP BY id , movie , description , rating
 HAVING id%2 <> 0 AND description <> "boring"
 ORDER BY rating DESC;
 
-
+-- swapping the gender of the people in a compnay using single update statement
+UPDATE Salary SET sex =
+CASE SEX
+    WHEN 'm' THEN 'f'
+    ELSE 'm'
+END;
+ 
 
 
