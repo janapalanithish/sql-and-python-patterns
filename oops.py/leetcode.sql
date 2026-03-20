@@ -220,3 +220,13 @@ SELECT
     student
 FROM Seat
 ORDER BY id;
+
+-- fetching the details of same hero , director who have directed for the same hero more than three time with same director also 
+SELECT actor_id , director_id
+FROM ActorDirector
+GROUP BY actor_id , director_id
+HAVING count(actor_id) >=3 
+       AND count(director_id) >=3;
+       
+
+
