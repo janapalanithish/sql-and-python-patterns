@@ -236,3 +236,10 @@ FROM Sales  a1
 LEFT JOIN Product  a2
 ON a1.product_id = a2.product_id;
 
+-- fetching details when the author viewed his own article at the same viewer_id and same author_id
+SELECT author_id AS id 
+FROM Views 
+GROUP BY author_id , viewer_id
+HAVING author_id = viewer_id
+ORDER BY author_id ASC;
+
