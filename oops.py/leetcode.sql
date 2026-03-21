@@ -227,6 +227,12 @@ FROM ActorDirector
 GROUP BY actor_id , director_id
 HAVING count(actor_id) >=3 
        AND count(director_id) >=3;
-       
 
+-- fetching same colums in the same table with different values in the two tables
+SELECT a2.product_name AS product_name , 
+       a1.year AS year ,
+       a1.price AS price
+FROM Sales  a1
+LEFT JOIN Product  a2
+ON a1.product_id = a2.product_id;
 
