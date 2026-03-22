@@ -243,3 +243,24 @@ GROUP BY author_id , viewer_id
 HAVING author_id = viewer_id
 ORDER BY author_id ASC;
 
+-- fetching the details with three tables who attempeted all the examinations which has a Students table , Subject table , Examination table 
+SELECT
+    S.student_id
+    ,S.student_name
+    ,SU.subject_name
+    ,COUNT(E.student_id) attended_exams
+FROM Students S
+CROSS JOIN Subjects SU
+LEFT JOIN Examinations E
+    ON S.student_id = E.student_id
+    AND SU.subject_name = E.subject_name
+
+GROUP BY S.student_id, S.student_name, SU.subject_name
+ORDER BY S.student_id, S.student_name, SU.subject_name
+;
+
+-- fetching the customers who bought all the products in the product table
+SELECT customer_id
+FROM Customer 
+GROUP BY customer_id
+HAVING COUNT(DISTINCT product_id) = (SELECT COUNT(*) FROM Products);
