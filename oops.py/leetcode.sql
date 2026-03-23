@@ -264,3 +264,16 @@ SELECT customer_id
 FROM Customer 
 GROUP BY customer_id
 HAVING COUNT(DISTINCT product_id) = (SELECT COUNT(*) FROM Products);
+
+-- fetching the datils of students who have improved than previous exams results
+WITH Ranked AS (
+    SELECT
+    student_id,
+    subject,
+    FIRST_VALUE(score) OVER(PARTITION BY student_id,subject ORDER BY exam_date) AS first_score,
+    FIRST_VALUE(score) OVER(PARTITION BY student_id,subject ORDER BY exam_date DESC) AS latest_score
+    FROM Scores
+)
+SELECT DISTINCT * FROM Ranked
+WHERE first_score<latest_score
+ORDER BY student_id,subject
