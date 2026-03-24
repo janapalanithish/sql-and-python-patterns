@@ -277,3 +277,19 @@ WITH Ranked AS (
 SELECT DISTINCT * FROM Ranked
 WHERE first_score<latest_score
 ORDER BY student_id,subject
+
+-- fetching the highest number of friends does a user have. The table contains requester_id and the accepter_id we have to identify the pairs of friends and setch which id number has maximun number of friends
+with cte as(
+    select requester_id as friends
+    from RequestAccepted
+    union all
+    select accepter_id as friends
+    from RequestAccepted
+)
+select 
+    friends as id,
+    count(friends) as num
+from cte
+group by friends
+order by num desc
+limit 1;
