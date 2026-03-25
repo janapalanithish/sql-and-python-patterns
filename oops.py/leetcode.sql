@@ -293,3 +293,8 @@ from cte
 group by friends
 order by num desc
 limit 1;
+
+-- checking the triangle is valid or not according to the values of x , y , x
+SELECT * ,
+IF (x+y>z and x+z>y and y+z>x , "Yes" , "No") AS triangle 
+FROM Triangle;
