@@ -298,3 +298,12 @@ limit 1;
 SELECT * ,
 IF (x+y>z and x+z>y and y+z>x , "Yes" , "No") AS triangle 
 FROM Triangle;
+
+
+-- fetching the experince of the employee of the particular project and finding the average experince of the employee who worked on the particular project 
+SELECT project_id , ROUND(AVG(experience_years) , 2) AS average_years
+FROM Project p1
+JOIN Employee e1
+ON p1.employee_id = e1.employee_id
+GROUP BY project_id;
+
