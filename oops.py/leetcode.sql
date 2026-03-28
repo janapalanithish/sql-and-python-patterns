@@ -307,3 +307,12 @@ JOIN Employee e1
 ON p1.employee_id = e1.employee_id
 GROUP BY project_id;
 
+-- fetch the details of the node of tree according to the given algorithm of root , Inner , leaf. id 1 has two children but no parent so it is root , id 2 has one parent and two child so it is inner , id 3 has one parent but no children so it is leaf
+SELECT 
+    id , 
+     CASE 
+        WHEN p_id IS NULL THEN 'Root'
+        WHEN id IN (SELECT distinct p_id FROM Tree WHERE p_id IS NOT NULL ) THEN 'Inner'
+        ELSE 'Leaf'
+END AS type 
+FROM Tree;
