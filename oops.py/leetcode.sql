@@ -325,3 +325,17 @@ WHERE (product_id , year) IN (
     FROM Sales
     GROUP BY product_id
 );
+
+
+--fetching the details of the user with their join date , number of orders placed in 2019 and their id 
+SELECT 
+    u1.user_id AS buyer_id 
+    ,u1.join_date
+    ,IFNULL(COUNT(o1.order_id),0) AS orders_in_2019 
+FROM users u1
+LEFT JOIN orders o1
+    ON u1.user_id=o1.buyer_id
+    AND YEAR(order_date) = '2019'
+GROUP BY u1.user_id, u1.join_date;
+
+
