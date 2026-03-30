@@ -338,4 +338,24 @@ LEFT JOIN orders o1
     AND YEAR(order_date) = '2019'
 GROUP BY u1.user_id, u1.join_date;
 
+-- fetching the details of the product with chnaged prices in that particular dates and the maximum values of the product_id and if the price of the product_will should be change to one if that is changed in the particular date
+    
+SELECT product_id, new_price AS price 
+FROM Products
+WHERE(product_id,change_date) IN
+(
+    SELECT product_id, MAX(change_date)
+    FROM Products
+    WHERE change_date <= '2019-08-16'
+    GROUP BY product_id
+)
+UNION
+SELECT product_id, 10 AS price 
+FROM Products
+WHERE(product_id) NOT IN
+(
+    SELECT product_id
+    FROM Products
+    WHERE change_date <= '2019-08-16'
+);
 
