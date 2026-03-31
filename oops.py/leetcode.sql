@@ -339,7 +339,6 @@ LEFT JOIN orders o1
 GROUP BY u1.user_id, u1.join_date;
 
 -- fetching the details of the product with chnaged prices in that particular dates and the maximum values of the product_id and if the price of the product_will should be change to one if that is changed in the particular date
-    
 SELECT product_id, new_price AS price 
 FROM Products
 WHERE(product_id,change_date) IN
@@ -358,4 +357,16 @@ WHERE(product_id) NOT IN
     FROM Products
     WHERE change_date <= '2019-08-16'
 );
+
+
+-- fetching the total returs loss/gain per one stock. In which we can buy and sell a single stock multiple times 
+SELECT stock_name , 
+SUM(CASE 
+       WHEN operation = "Buy" THEN -price
+       ELSE price
+       END
+) AS capital_gain_loss
+FROM Stocks 
+GROUP BY stock_name;
+
 
