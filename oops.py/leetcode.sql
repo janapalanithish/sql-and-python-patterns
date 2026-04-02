@@ -399,3 +399,18 @@ FROM Transactions
 GROUP BY month , country;
 
 
+-- fetching the details of the final person who is going through a bus where the consition is maximum limit of the bus is 1000kgs 
+SELECT person_name 
+FROM 
+   (
+    SELECT person_name , 
+    SUM(weight) OVER (ORDER BY Turn) AS Total_Weight
+    FROM Queue
+   ) t
+WHERE Total_weight <=1000
+ORDER BY total_weight DESC 
+LIMIT 1;
+
+
+
+
