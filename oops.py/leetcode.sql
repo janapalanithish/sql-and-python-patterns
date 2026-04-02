@@ -411,6 +411,10 @@ WHERE Total_weight <=1000
 ORDER BY total_weight DESC 
 LIMIT 1;
 
-
+-- fetching the details of number of follwes does a user have vice versa the follower follows the user 
+SELECT user_id , count(follower_id) AS followers_count
+FROM Followers
+GROUP BY user_id 
+ORDER BY user_id ASC;
 
 
