@@ -418,3 +418,16 @@ GROUP BY user_id
 ORDER BY user_id ASC;
 
 
+-- fetching the salary details of the employee according to their salary 
+
+SELECT 'Low Salary' AS category
+    COUNT(IF(Salary < 20000 , 1 , NULL)) AS accounts_count
+    FROM Accounts 
+UNION
+SELECT 'Average Salary' AS category
+      COUNT(IF(salary >= 20000 AND salary <= 50000 ,1 , NULL)) AS accounts_count
+      FROM Accounts
+UNION
+SELECT 'High Salary' AS category
+      COUNT(IF(salary > 50000 ,1 , NULL)) AS accounts_count
+      FROM Accounts
