@@ -442,3 +442,14 @@ ON p1.product_id = p2.product_id
 WHERE order_date between "2020-02-01" and "2020-02-29"
 GROUP BY p1.product_id
 HAVING unit >= 100;
+
+
+-- fetching the acceptnace rate in the request and accepting table 
+
+SELECT s1.user_id , 
+       ROUND(AVG(IF(c1.action = 'confirmed' , 1 , 0)) , 2) AS confirmation_rate
+FROM Signups s1
+LEFT JOIN Confirmations c1 
+ON s1.user_id = c1.user_id 
+GROUP BY s1.user_id;
+
