@@ -453,3 +453,9 @@ LEFT JOIN Confirmations c1
 ON s1.user_id = c1.user_id 
 GROUP BY s1.user_id;
 
+-- fetching the teachers count with the number of unique subjects taught
+SELECT teacher_id , count( distinct subject_id) AS cnt
+FROM Teacher 
+GROUP BY teacher_id;
+
+
