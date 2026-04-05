@@ -458,4 +458,18 @@ SELECT teacher_id , count( distinct subject_id) AS cnt
 FROM Teacher 
 GROUP BY teacher_id;
 
+-- fetching the product details which is sold in between 2019-01-01 and 2019-03-31
+
+SELECT p1.product_id  AS product_id,p1.product_name AS product_name  
+FROM Product p1
+LEFT JOIN Sales s1
+ON p1.product_id = s1.product_id
+GROUP BY p1.product_id 
+HAVING MIN(s1.sale_date) >= '2019-01-01' 
+AND MAX(s1.sale_date) <= '2019-03-31';
+
+
+
+
+
 
