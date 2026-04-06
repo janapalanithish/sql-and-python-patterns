@@ -468,6 +468,13 @@ GROUP BY p1.product_id
 HAVING MIN(s1.sale_date) >= '2019-01-01' 
 AND MAX(s1.sale_date) <= '2019-03-31';
 
+--  fetching the total amount of bank balance which is trasferred greater than 10000 
+    SELECT u1.name AS name , SUM(t1.amount) AS balance 
+    FROM Users u1
+    LEFT JOIN Transactions t1
+    ON u1.account = t1.account 
+    GROUP BY t1.account 
+    HAVING balance > 10000;
 
 
 
