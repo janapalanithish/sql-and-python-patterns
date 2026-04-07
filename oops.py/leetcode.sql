@@ -484,4 +484,19 @@ LEFT JOIN EmployeeUNI e2
 ON e1.id = e2.id 
 GROUP BY e1.id;
 
+-- fetching the total distance a person with id travelled if two persons have same distance travelled then return 0 
+
+SELECT u1.name AS name , IFNULL(SUM(distance) , 0) AS travelled_distance 
+FROM Users u1
+LEFT JOIN Rides r1
+ON u1.id = r1.user_id
+GROUP BY r1.user_id
+ORDER BY travelled_distance DESC , name ASC;
+
+
+
+
+
+
+
 
