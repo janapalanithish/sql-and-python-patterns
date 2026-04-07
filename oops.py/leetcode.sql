@@ -477,6 +477,11 @@ AND MAX(s1.sale_date) <= '2019-03-31';
     HAVING balance > 10000;
 
 
-
+-- fetching the employee_id with unique names by joining to tables
+SELECT e2.unique_id  AS unique_id, e1.name AS name
+FROM Employees AS e1
+LEFT JOIN EmployeeUNI e2
+ON e1.id = e2.id 
+GROUP BY e1.id;
 
 
