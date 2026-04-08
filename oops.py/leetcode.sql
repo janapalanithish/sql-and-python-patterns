@@ -502,3 +502,8 @@ select sell_date,
     group_concat(distinct product order by product asc separator ",") as products
 from activities
 group by sell_date    
+
+-- fetching the correct tweet which has the length of content greater than 15
+SELECT tweet_id
+FROM Tweets 
+WHERE LENGTH(content) > 15;
