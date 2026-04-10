@@ -528,4 +528,10 @@ store3 AS price
 FROM Products
 WHERE store3 IS NOT NULL;
 
+-- return which product is both recyclable and low fat
+
+SELECT product_id
+FROM Products 
+WHERE low_fats = "Y" AND recyclable = "Y";
+
 
