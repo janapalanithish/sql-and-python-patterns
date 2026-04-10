@@ -534,4 +534,8 @@ SELECT product_id
 FROM Products 
 WHERE low_fats = "Y" AND recyclable = "Y";
 
+-- finding the time stamp of the app user with the maximum time spent on the app in a day
+SELECT event_day AS day , emp_id , sum(out_time - in_time) AS total_time 
+FROM Employees 
+GROUP BY day , emp_id;
 
