@@ -539,3 +539,15 @@ SELECT event_day AS day , emp_id , sum(out_time - in_time) AS total_time
 FROM Employees 
 GROUP BY day , emp_id;
 
+-- finding the time of login of the users which is maximum time during 2020
+SELECT user_id , 
+MAX(time_stamp) AS last_stamp
+FROM Logins
+WHERE YEAR(time_stamp) = 2020
+GROUP BY user_id;
+
+
+
+
+
+
