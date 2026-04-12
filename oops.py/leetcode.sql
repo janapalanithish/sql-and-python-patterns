@@ -547,7 +547,11 @@ WHERE YEAR(time_stamp) = 2020
 GROUP BY user_id;
 
 
-
-
+-- turning upper case to lower case and lower case to upper case 
+SELECT user_id ,
+    CONCAT(UPPER(SUBSTRING(name ,1 ,1 )) , LOWER(SUBSTRING(name , 2))) AS name
+FROM Users 
+GROUP BY user_id
+ORDER BY user_id ASC;
 
 
